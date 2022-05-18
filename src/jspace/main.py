@@ -27,8 +27,35 @@ class Io:
                 print(item)
 
 
+def first_letter_capital_in_each_word(line):
+    result=''
+    for i in range(len(line)):
+        if i!=0 and line[i-1]==' ':
+            result+=line[i].capitalize()
+        else:
+            result+=line[i]
+    return result
+
+
+def remove_spaces(words_capital):
+    result=''
+    for char in words_capital:
+        if char == ' ':
+            pass
+        else:
+            result+=char
+    return result
+
+def camel_case(line):
+    words_capital = first_letter_capital_in_each_word(line)
+    removed_spaces = remove_spaces(words_capital)
+    return removed_spaces
+
+
 def process(lines: List[str]):
-    # todo write code here:
+    for line in lines:
+        camel_case_string = camel_case(line)
+        print(camel_case_string, end='')
     pass
 
 
