@@ -1,6 +1,6 @@
 from sys import argv
 
-from polowa.input import Input
+from input import Input
 
 
 def get_half(line):

@@ -1,0 +1,1 @@
+# https://pl.spoj.com/problems/MWPZ06D/
