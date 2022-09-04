@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="polowa-file" type="PythonConfigurationType" factoryName="Python">
-    <module name="python-learning" />
+    <module name="python-spoj" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>
