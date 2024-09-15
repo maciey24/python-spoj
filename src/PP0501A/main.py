@@ -25,14 +25,56 @@ class Io:
                 print(item)
 
 
-# nonoptimal but very little logic
+class PrimeSupplier:
+    def __init__(self):
+        self.prime_numbers = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53]
+
+    @classmethod
+    def is_prime(cls, i: int) -> bool:
+        for j in range(3, int(i/2)+1, 2):
+            if i % j == 0:
+                return False
+        return True
+
+    def get(self, index: int) -> int:
+        if index >= len(self.prime_numbers):
+            self.extend_array(index)
+        return self.prime_numbers[index]
+
+    def extend_array(self, index: int):
+        current_length = len(self.prime_numbers)
+        current_max_prime = self.prime_numbers[current_length - 1]
+        for i in range(current_max_prime + 2, 1000000, 2):
+            if self.is_prime(i):
+                self.prime_numbers.append(i)
+                if len(self.prime_numbers) - 1 == index:
+                    return
+
+    def size(self):
+        return len(self.prime_numbers)
+
+
+prime_numbers = PrimeSupplier()
+
+
+# todo :
+# not working for big numbers like first=101*5, second = 101*6
 def nwd(first: int, second: int) -> int:
-    i = first
-    while i >= 1:
-        if first % i == 0 and second % i == 0:
-            return i
-        i -= 1
-    raise ArithmeticError("could not find nwd")
+    i = 0
+    common_prime_factors = []
+    while i < first and i < second:
+        prime = prime_numbers.get(i)
+        if first % prime == 0 and second % prime == 0:
+            common_prime_factors.append(prime)
+            first = int(first / prime)
+            second = int(second / prime)
+        else:
+            i += 1
+
+    result = 1
+    for c in common_prime_factors:
+        result *= c
+    return result
 
 
 def process_input_line(line: str) -> int:
