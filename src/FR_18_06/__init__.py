@@ -1,0 +1,1 @@
+# https://pl.spoj.com/problems/FR_18_06/
