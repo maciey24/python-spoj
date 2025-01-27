@@ -1,0 +1,1 @@
+# https://pl.spoj.com/problems/AL_28_01/
